@@ -8,7 +8,6 @@ def i18n_symbols = ["am","az","be","bg","bn","ca","crs","cs","da","de","el","es"
 //def i18n_symbols = ["am","az"] // in case of testing use these
 
 def words = ["Maps","Shopping", "Books", "More", "Applications"]
-def from = "en"
 
 
 def getTranslation(String word, String languageFrom, String languageTo){
@@ -25,10 +24,9 @@ def getTranslation(String word, String languageFrom, String languageTo){
 	return translate
 }
 
-def doMassTranslate(){
+def doMassTranslate(i18n_symbols, words){
 	println "Starting mass translator"
-
-	
+	def from = "en"
 
 	for( i18n_symbol in i18n_symbols){
 		def file = createFile("messages_${i18n_symbol}.properties")
@@ -53,4 +51,4 @@ def printToFile(String word, def file){
 	file << word +"\n"
 }
 
-doMassTranslate()
+doMassTranslate(i18n_symbols, words)
